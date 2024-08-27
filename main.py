@@ -12,7 +12,7 @@ async def create_upload_file(uploaded_file: UploadFile = File(...)):
     if uploaded_file.filename[-3:] != "jpg" and uploaded_file.filename[-3:] != "jpeg" and uploaded_file.filename[-3:] != "png":
         raise HTTPException(status_code=404, detail="File type incorrect")
     try:
-        file_location = f"data/sample_image" #get location to store uploaded image
+        file_location = f"sample_image" #get location to store uploaded image
         with open(file_location, "wb+") as file_object: 
             file_object.write(await uploaded_file.read()) #save the image
 
